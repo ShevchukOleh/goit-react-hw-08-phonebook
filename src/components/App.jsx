@@ -1,16 +1,33 @@
-export const App = () => {
+import { useDispatch } from "react-redux";
+import { ContactsView } from "./ContactsView";
+import { useEffect } from "react";
+import { fetchCurrentUser } from "redux/auth/operations";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import RegisterView from "./RegisterView";
+import LoginView from "./LoginView";
+import { Layout } from "./Layout";
+import { PublicRoute } from "./PublicRoute";
+import { PrivateRoute } from "./PrivateRoute";
+
+const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Router>
+      <Routes>
+      <Route path='/' element={<Layout />}>
+        {/* <Route index element={<ContactsView/>} /> */}
+        <Route path="/contacts" element={<PrivateRoute component={<ContactsView/>} redirectTo="/login" />} />
+        <Route path="/login" element={<PublicRoute component={LoginView} redirectTo="/contacts" />} />
+        <Route path="/register" element={<PublicRoute component={RegisterView} redirectTo="/contacts" />} />
+      </Route>
+      </Routes>
+    </Router>
   );
 };
+
+export default App;
