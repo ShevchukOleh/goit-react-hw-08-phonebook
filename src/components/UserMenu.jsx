@@ -8,9 +8,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
   },
-  avatar: {
-    marginRight: 4,
-  },
   name: {
     fontWeight: 700,
     marginRight: 12,
@@ -20,7 +17,6 @@ const styles = {
 export default function UserMenu() {
   const dispatch = useDispatch();
   const name = useSelector(getUsername);
-  const avatar = defaultAvatar;
 
   return (
     <div style={styles.container}>
