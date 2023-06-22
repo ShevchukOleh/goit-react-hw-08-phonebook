@@ -2,7 +2,7 @@ import { useDispatch } from "react-redux";
 import { ContactsView } from "./ContactsView";
 import { useEffect } from "react";
 import { fetchCurrentUser } from "redux/auth/operations";
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
 import RegisterView from "./RegisterView";
 import LoginView from "./LoginView";
 import { Layout } from "./Layout";
@@ -17,7 +17,6 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <Router>
       <Routes>
       <Route path='/' element={<Layout />}>
         {/* <Route index element={<ContactsView/>} /> */}
@@ -26,7 +25,6 @@ const App = () => {
         <Route path="/register" element={<PublicRoute component={RegisterView} redirectTo="/contacts" />} />
       </Route>
       </Routes>
-    </Router>
   );
 };
 
