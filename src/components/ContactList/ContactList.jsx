@@ -29,9 +29,9 @@ function ContactList() {
         {isLoading && <p>Loading...</p>}
       </Loading>
       <List>
-        {visibleContacts.map(({ id, name, phone }) => (
+        {visibleContacts.map(({ id, name, number }) => (
           <ListItem key={id}>
-            {name}: {phone}
+            {name}: {number}
             <Button type="button" onClick={() => contactDelete(id)}>Delete</Button>
           </ListItem>
         ))}

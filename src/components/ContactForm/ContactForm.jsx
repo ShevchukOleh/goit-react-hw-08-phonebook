@@ -12,7 +12,7 @@ const ContactForm = () => {
 
         const contact = {
             name: form.elements.name.value,
-            phone: form.elements.number.value,
+            number: form.elements.number.value,
         }
 
         dispatch(addContact(contact));

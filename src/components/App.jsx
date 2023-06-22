@@ -2,9 +2,9 @@ import { useDispatch } from "react-redux";
 import { ContactsView } from "./ContactsView";
 import { useEffect } from "react";
 import { fetchCurrentUser } from "redux/auth/operations";
-import { Route, Routes} from "react-router-dom";
-import RegisterView from "./RegisterView";
-import LoginView from "./LoginView";
+import { Navigate, Route, Routes} from "react-router-dom";
+import RegisterView from "./LoginRegistrationView/RegisterView";
+import LoginView from "./LoginRegistrationView/LoginView";
 import { Layout } from "./Layout";
 import { PublicRoute } from "./PublicRoute";
 import { PrivateRoute } from "./PrivateRoute";
@@ -15,17 +15,20 @@ const App = () => {
   useEffect(() => {
     dispatch(fetchCurrentUser());
   }, [dispatch]);
+  
 
   return (
-      <Routes>
-      <Route path='/' element={<Layout />}>
-        {/* <Route index element={<ContactsView/>} /> */}
+    <Routes>
+      <Route path="/" element={<Layout />}>
         <Route path="/contacts" element={<PrivateRoute component={<ContactsView/>} redirectTo="/login" />} />
-        <Route path="/login" element={<PublicRoute component={LoginView} redirectTo="/contacts" />} />
-        <Route path="/register" element={<PublicRoute component={RegisterView} redirectTo="/contacts" />} />
+        <Route path="/login" element={<PublicRoute component={LoginView} redirectTo="/contacts"/>} />
+        <Route path="/register" element={<PublicRoute component={RegisterView} redirectTo="/contacts"/>} />
+        <Route path="/" element={<Navigate to="/login" />} />
       </Route>
-      </Routes>
+    </Routes>
   );
 };
 
 export default App;
+
+
