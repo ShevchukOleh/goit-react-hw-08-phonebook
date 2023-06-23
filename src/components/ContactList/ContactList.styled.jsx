@@ -5,38 +5,53 @@ export const List = styled.ul`
     line-height: 1.2;
     margin: 0;
     padding: 15px;
+    padding-top: 30px;
 `;
 
 export const ListItem = styled.li`
-    width: 300px;
+    align-items: center;
+    max-width: 480px;
     display: flex;
     justify-content: space-between;
+    font-size: 18px;
+    border-bottom: 1px solid #071896;
     &:not(:last-child) {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    @media screen and (min-width: 768px) {
+        max-width: 800px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 600px;
     }
 `;
-
-export const Button = styled.button`
-    font-size: 14px;
-    line-height: 1.2;
-    padding: 2px 10px;
-    border: 1px solid #262c4d;
-    border-radius: 3px;
-    color: white;
-    background-color: #262c4d;
-    margin-left: 20px;
-    cursor: pointer;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover {
-        background-color:#b30a07; 
+export const Title = styled.h2`
+    display: flex; 
+    justify-content: center;
+    @media screen and (min-width: 768px) {
+        display: block;
+        padding-left: 20px;
+    }
+    @media screen and (min-width: 1200px) {
+        isplay: flex; 
     }
 `;
 export const Container =styled.div`
     position: relative;
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 480px;
+    @media screen and (min-width: 768px) {
+        max-width: 800px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 600;
+    }
 `
 
 export const Loading = styled.div`
     position: absolute;
-    top: -25px;
-    left: 15px;
+    height: 20px;
+    top: 5px;
+    left: 20px;
 `

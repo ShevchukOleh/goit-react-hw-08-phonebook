@@ -1,10 +1,11 @@
-import {List, Button, ListItem, Loading, Container } from './ContactList.styled';
+import {List, ListItem, Loading, Container } from './ContactList.styled';
 import { getContacts, getFilter } from 'redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
 import { fetchContacts } from 'redux/thunk';
 import { useEffect } from 'react';
-import { logOut } from 'redux/auth/operations';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { CircularProgress } from '@mui/material';
 
 function ContactList() {
   const { items, isLoading } = useSelector(getContacts);
@@ -26,19 +27,16 @@ function ContactList() {
   return (
     <Container>
       <Loading>
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <CircularProgress size={20}/>}
       </Loading>
       <List>
         {visibleContacts.map(({ id, name, number }) => (
           <ListItem key={id}>
             {name}: {number}
-            <Button type="button" onClick={() => contactDelete(id)}>Delete</Button>
+            <DeleteIcon style={{cursor: 'pointer'}} onClick={() => contactDelete(id)}/>
           </ListItem>
         ))}
       </List>
-      <button type="button" onClick={() => dispatch(logOut())}>
-                    Выйти
-            </button>
     </Container>
   );
 }

@@ -1,16 +1,20 @@
 import ContactForm from './ContactForm/ContactForm'
+import { Container, Section } from './ContactForm/ContactForm.styled';
 import ContactList from './ContactList/ContactList'
+import { Title } from './ContactList/ContactList.styled';
 import { Filter } from './Filter/Filter';
 
 export const ContactsView = () => {
   return (
-    <div style={{padding: "5px 20px"}}>
-      <h1>Phonebook</h1>
-      <ContactForm/>
-
-      <h2>Contacts</h2>
-      <Filter/>
-      <ContactList/>
-    </div>
+    <Section>
+      <Container>
+        <ContactForm/>
+        <div>
+          <Title>Contacts</Title>
+          <Filter/>
+          <ContactList/>
+        </div>
+      </Container>
+    </Section>
   );
 }

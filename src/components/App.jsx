@@ -6,8 +6,8 @@ import { Navigate, Route, Routes} from "react-router-dom";
 import RegisterView from "./LoginRegistrationView/RegisterView";
 import LoginView from "./LoginRegistrationView/LoginView";
 import { Layout } from "./Layout";
-import { PublicRoute } from "./PublicRoute";
-import { PrivateRoute } from "./PrivateRoute";
+import { PublicRoute } from "./Routes/PublicRoute";
+import { PrivateRoute } from "./Routes/PrivateRoute";
 
 const App = () => {
   const dispatch = useDispatch();

@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { register } from 'redux/auth/operations';
-import { Button, ButtonContainer, Container, Form, Input, Label, Link, RegistrationContainer, Section, Text, TextContainer, Title } from './LoginView.styled';
+import { ButtonContainer, Container, Form, Link, RegistrationContainer, Section, Text, TextContainer, Title } from './LoginView.styled';
+import { Button, TextField } from '@mui/material';
 
 export default function RegisterView() {
   const dispatch = useDispatch();
@@ -39,37 +40,41 @@ export default function RegisterView() {
           <Title>Registration</Title>
 
           <Form onSubmit={handleSubmit} autoComplete="off">
-            <Label>
-              <Input 
-                type="text" 
-                name="name" 
-                placeholder='Name'
-                value={name} 
-                onChange={handleChange} />
-            </Label>
+            <TextField style={{marginBottom: 20}}
+              fullWidth
+              type="text"
+              name="name"
+              id="standard-basic" 
+              label="Name" 
+              variant="standard" 
+              value={name}
+              onChange={handleChange}
+            />
 
-            <Label>
-              <Input
-                type="email"
-                name="email"
-                placeholder='Email'
-                value={email}
-                onChange={handleChange}
-              />
-            </Label>
+            <TextField style={{marginBottom: 20}}
+              fullWidth
+              type="email"
+              name="email"
+              id="standard-basic" 
+              label="Email" 
+              variant="standard" 
+              value={email}
+              onChange={handleChange}
+            />
 
-            <Label>
-              <Input
-                type="password"
-                name="password"
-                placeholder='Password'
-                value={password}
-                onChange={handleChange}
-              />
-            </Label>
+            <TextField
+              fullWidth
+              type="password"
+              name="password"
+              id="outlined-password-input" 
+              label="Password" 
+              variant="standard" 
+              value={password}
+              onChange={handleChange}
+            />
 
             <ButtonContainer>
-              <Button type="submit">Sign Up</Button>
+              <Button type='submit' variant="contained">Sign In</Button>
             </ButtonContainer>
             <Link onClick={() => {navigate('/login')}}>Already registered? Sign In</Link>
           </Form>

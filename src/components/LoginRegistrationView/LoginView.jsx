@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logIn } from 'redux/auth/operations';
-import { Button, ButtonContainer, Container, Form, Input, Label, Link, LogInContainer, Section, Text, TextContainer, Title } from './LoginView.styled';
+import { ButtonContainer, Container, Form, Link, LogInContainer, Section, Text, TextContainer, Title } from './LoginView.styled';
+import { Button, TextField, } from '@mui/material';
 
 export default function LoginView() {
   const dispatch = useDispatch();
@@ -35,29 +36,32 @@ export default function LoginView() {
           <Title>Log In</Title>
 
           <Form onSubmit={handleSubmit} autoComplete="off">
-            <Label>
-              <Input
+              <TextField style={{marginBottom: 20}}
+                fullWidth
                 type="email"
                 name="email"
-                placeholder='Email'
+                id="standard-basic" 
+                label="Email" 
+                variant="standard" 
                 value={email}
                 onChange={handleChange}
               />
-            </Label>
 
-            <Label style={{marginBottom: 0}}>
-              <Input
+              <TextField
+                fullWidth
                 type="password"
                 name="password"
-                placeholder='Password'
+                id="outlined-password-input" 
+                label="Password" 
+                variant="standard" 
                 value={password}
                 onChange={handleChange}
               />
-            </Label>
 
             <ButtonContainer>
-              <Button type="submit">Log In</Button>
+              <Button type='submit' variant="contained">Log In</Button>
             </ButtonContainer>
+
             <Link onClick={() => {navigate('/register')}}>Don't have an account? Sign Up</Link>
 
           </Form>

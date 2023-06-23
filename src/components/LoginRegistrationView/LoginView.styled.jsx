@@ -3,10 +3,9 @@ import photo from '../../image/pexels-christian-heitz-842711.jpg'
 import mobileBG from '../../image/mobile.jpeg'
 import tabletBg from '../../image/tablet.jpeg'
 
-
 export const Section = styled.div`
     background-color: #0b0b32;
-    max-width: 480px;
+    max-width: 767px;
     height: 100vh;
     display: grid;
     justify-content: center;
@@ -15,7 +14,7 @@ export const Section = styled.div`
     background-size: cover;
     background-repeat: no-repeat;
     @media screen and (min-width: 768px) {
-        max-width: 768px;
+        max-width: 1199px;
         background-image: url(${tabletBg});
         background-position: center;
         background-size: cover;
@@ -24,7 +23,6 @@ export const Section = styled.div`
     @media screen and (min-width: 1200px) {
         display: flex;
         max-width: 1440px;
-        height: 100vh;
         background-image: url(${photo});
         background-position: center;
         background-size: cover;
@@ -36,7 +34,7 @@ export const LogInContainer = styled.div`
    padding-left: 15px;
    padding-right: 15px;
    @media screen and (min-width: 1200px) {
-    padding-top: 100px;
+    padding-top: 130px;
    }
 `;
 export const RegistrationContainer = styled.div`
@@ -67,44 +65,10 @@ export const Title = styled.h2`
     font-size: 25px;
 `;
 export const Form = styled.form`
-    display: grid;
-    justify-content: center;
+    padding-left: 30px;
+    padding-right: 30px;
 `;
-export const Label = styled.label`
-    display: grid;
-    margin-bottom: 25px;
-`;
-export const Input = styled.input`
-    height: 35px;
-    border-radius: 6px;
-    border: 2px solid #04045f;
-    padding: 2px 5px;
-    font-size: 17px;
-    width: calc(100vw - 60px);
-    max-width: 350px;
-    outline: none;
-    cursor: pointer;
-    &:hover, &:focus {
-        border: 2px solid #d19c08;
-    }
-`;
-export const Button = styled.button`
-    margin-top: 80px;
-    width: 160px;
-    height: 35px;
-    border-radius: 5px;
-    border: 1px solid #fff;
-    cursor: pointer;
-    background-color: #045f1b;
-    color: #ffffff;
-    font-size: 18px;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    &:hover, &:focus {
-        background-color: #8b9411;
-        color: #ffffff;
-    }
-`;
+
 export const Link = styled.a`
     margin-top: 60px;
     color: #21219e;
@@ -115,11 +79,15 @@ export const Link = styled.a`
 export const ButtonContainer = styled.div`
     display: grid;
     justify-content: center;
+    margin-top: 60px;
 `;
 export const Text = styled.h1`
     color: rgba(255, 255, 255, 0.8);
     margin: 0;
     font-size: 50px;
+    @media screen and (min-width: 768px) {
+        font-size: 70px;
+    }
     @media screen and (min-width: 1200px) {
         font-size: 100px;
     }
