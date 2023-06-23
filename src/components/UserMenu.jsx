@@ -9,10 +9,6 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
   },
-  name: {
-    fontWeight: 700,
-    marginRight: 12,
-  },
 };
 
 export default function UserMenu() {
@@ -21,7 +17,7 @@ export default function UserMenu() {
 
   return (
     <div style={styles.container}>
-      <Text style={styles.name}>{email}</Text>
+      <Text>{email}</Text>
       <Button 
         size='small' 
         color='error' 
